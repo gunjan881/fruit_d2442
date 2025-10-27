@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fruit Suggestion Chatbot — Watson Embed</title>
+  <style>
+    :root{--bg:#f7fafc;--card:#ffffff;--accent:#16a34a}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); margin:0; padding:24px; color:#0f172a}
+    .wrap{max-width:980px;margin:20px auto}
+    header{display:flex;align-items:center;gap:16px}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:6px 0 18px;color:#475569}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    .instructions{font-size:14px;color:#334155}
+    .example-utterances{margin-top:12px}
+    pre{background:#0b1220;color:#d1fae5;padding:12px;border-radius:8px;overflow:auto}
+    footer{margin-top:18px;font-size:13px;color:#64748b}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="6" fill="#16a34a"/><path d="M7 12c0-2.761 2.239-5 5-5s5 2.239 5 5-2.239 5-5 5-5-2.239-5-5z" fill="white"/></svg>
+      <div>
+        <h1>Fruit Suggestion Chatbot (Watson Embed)</h1>
+        <p class="lead">A minimal HTML page that embeds the IBM Watson Assistant web chat.</p>
+      </div>
+    </header>
+
+    <div class="card" role="main">
+      <div class="instructions">
+        <strong>How to use</strong>
+        <ol>
+          <li>Save this file as <code>fruit_chatbot_watson.html</code>.</li>
+          <li>Open it in a browser (preferably served over <code>https</code> if your Watson integration requires it).</li>
+          <li>The Watson chat widget will automatically render using the integration credentials below.</li>
+        </ol>
+
+        <p><strong>Integration snippet included:</strong></p>
+        <pre>&lt;script&gt; window.watsonAssistantChatOptions = { integrationID: "566d834c-cebc-460f-89e0-6bbb2644e76a", region: "eu-de", serviceInstanceID: "2492287c-8841-446b-8370-8654730a668e", onLoad: async (instance) =&gt; { await instance.render(); } }; setTimeout(function(){ const t=document.createElement('script'); t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"; document.head.appendChild(t); }); &lt;/script&gt;</pre>
+
+        <div class="example-utterances">
+          <strong>Suggested user starters</strong>
+          <ul>
+            <li>"Hi — suggest a fruit for energy"</li>
+            <li>"Which fruits are good in summer?"</li>
+            <li>"I want something for glowing skin"</li>
+            <li>"Suggest low-calorie fruits for weight loss"</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:12px">If you need the page modified (custom styling, a pre-chat form, or to preload context like user age or region), tell me what to add and I’ll update the file.</p>
+      </div>
+    </div>
+
+    <footer>
+      Note: keep your integration ID / service instance secret in production. If you want the widget to start minimized or with custom CSS, I can add that.
+    </footer>
+  </div>
+
+  <!-- Watson Assistant Web Chat embed (provided) -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "566d834c-cebc-460f-89e0-6bbb2644e76a", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "2492287c-8841-446b-8370-8654730a668e", // The ID of your service instance.
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+</body>
+</html>
